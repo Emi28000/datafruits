@@ -4,5 +4,5 @@
 @endsection
 
 @section('contenu')
- <h1>Welcome to the laravel 9.X project111</h1>
+ <h1>Welcome to the laravel 11 project</h1>
  @endsection

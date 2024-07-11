@@ -14,6 +14,6 @@ use App\Http\Controllers\PagesController;
 Route::get('/home',[PagesController::class,'home']);
 Route::get('/apropos',[PagesController::class,'apropos']);
 Route::get('/services',[PagesController::class,'services']);
-
+Route::get('/show/{id}',[PagesController::class, 'show']);
 
 
