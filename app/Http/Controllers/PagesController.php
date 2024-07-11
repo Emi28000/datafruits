@@ -24,8 +24,9 @@ class PagesController extends Controller
     }
     public function show($id){
        $Produit = DB::table('Produits')
-       ->where('id',$id);
-
+       ->where('id',$id)
+       ->first();
+       return view('pages.show')->with('produits',$Produit);
     }
 
 }
