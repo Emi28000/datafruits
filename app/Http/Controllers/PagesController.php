@@ -16,16 +16,19 @@ class PagesController extends Controller
         return view("pages.apropos");
     }
     public function services(){
-        $Produits=DB::table("Produits")->orderBy('produits_name', 'asc')->get();
+        $Produits=DB::table("Produits")->orderBy
+        // Pour creer des pages
+        ('produits_name', 'asc')->paginate(4);
         // $Produits = Produits::paginate(2);
 
 
         return view("pages.services")->with('Produits',$Produits);
     }
     public function show($id){
-       $Produit = DB::table('Produits')
-       ->where('id',$id)
-       ->first();
+    //    $Produit = DB::table('Produits')
+    //    ->where('id',$id)
+    //    ->first();
+          $Produit = Produits::find($id);
        return view('pages.show')->with('produits',$Produit);
     }
 
