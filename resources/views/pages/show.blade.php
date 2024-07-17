@@ -16,4 +16,11 @@
 </div> --}}
 {{-- @endforeach --}}
 {{-- {{$Produits->links()}} --}}
+<hr>
+<a href="" class="btn btn-default">Edit</a>
+<form action=" {{url('deleteproduits', [$produits->id])}}" method="POST" class="pull-right">
+    @csrf
+    @method('DELETE')
+    <button class="btn btn-danger" type="submit">Supprimer</button>
+</form>
  @endsection
