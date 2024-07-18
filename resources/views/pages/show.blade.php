@@ -17,7 +17,7 @@
 {{-- @endforeach --}}
 {{-- {{$Produits->links()}} --}}
 <hr>
-<a href="" class="btn btn-default">Edit</a>
+<a href="{{ url('editproduits', [$produits->id])}}" class="btn btn-default">Edit</a>
 <form action=" {{url('deleteproduits', [$produits->id])}}" method="POST" class="pull-right">
     @csrf
     @method('DELETE')

@@ -15,10 +15,10 @@ class ProduitController extends Controller
 
     public function saveproduit(Request $request){
 
-//     $this->valided($request, [
-//         'produits_name'=> 'required',
-//         'produits_price'=> 'required',
-//         'produits_description'=> 'required',
+//     $this->validate($request, [
+//         'produits_name' => 'required',
+//         'produits_price' => 'required',
+//         'produits_description' => 'required',
 
 //    ]);
 
@@ -50,7 +50,28 @@ public function deleteproduit($id){
     $produit->delete();
 
     return redirect('/services')->with('status', 'votre produit a été supprimé avec succés!!');
+}
+public function editproduits($id){
+$produit = Produits::find($id);
+return view ('pages.editProduits')->with("produit",$produit);
+}
 
+public function updateproduits(Request $request, $id){
+//         $this->validate($request, [
+//         'produits_name' => 'required',
+//         'produits_price' => 'required',
+//         'produits_description' => 'required',
+
+//    ]);
+
+    $Produits = Produits::find($id);
+
+    $Produits->produits_name=$request->input('produits_name');
+    $Produits->produits_price=$request->input('produits_price');
+    $Produits->produits_description=$request->input('produits_description')
+    ;
+    $Produits->update();
+     return redirect('/services')->with('status', 'votre produit a été modifié avec succés!!');
 }
 }
 
